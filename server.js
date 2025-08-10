@@ -8,8 +8,11 @@ const productRoutes = require('./routes/productRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 
 const app = express();
-
-app.use(cors());
+app.use(cors({
+  origin: 'https://review-app-frontend-kappa.vercel.app', // allowed origin
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}));
 app.use(express.json());
 
 // routes
